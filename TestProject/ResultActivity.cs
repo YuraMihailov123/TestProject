@@ -38,7 +38,7 @@ namespace TestProject
             {
                 if (str != "")
                 {
-                    jsonString.AppendLine("\t\t\"" + str.Split(" ")[0].Replace(":","") + "\": " + str.Split(" ")[1]+",");
+                    jsonString.AppendLine("\t\t\"" + str.Split(" ")[0].Replace(":","") + "\": " + "\"" +str.Split(" ")[1]+"\""+",");
                 }
             }
             jsonString.AppendLine("\t}");
