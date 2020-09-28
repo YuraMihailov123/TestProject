@@ -60,7 +60,6 @@ namespace TestProject
                 { 
                     if (node.OriginalName != "#text")
                     {
-                        //Console.WriteLine(node.OriginalName + ":" + node.InnerText);
                         stringBuilder.AppendLine(node.OriginalName + ": " + node.InnerText);
                     }
                     
@@ -68,10 +67,6 @@ namespace TestProject
                 tempList.Add(stringBuilder.ToString());
                 Console.WriteLine(i);
                 Console.WriteLine(stringBuilder);
-
-                //Console.WriteLine(text[i].SelectSingleNode("/yml_catalog/shop/offers/offer[" + (i+1)+"]/price").InnerText);
-                //Console.WriteLine(text[i].Id);
-                //mainData.Add(line);
             }
             mainData = new List<string>(tempList);
             ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, GetOnlyIDs(mainData));
@@ -89,7 +84,6 @@ namespace TestProject
             return returnList;
         }
 
-        //public void GetInnerText(string)
 
         private void MainList_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
@@ -100,14 +94,11 @@ namespace TestProject
 
         async Task<string> GetInfoAsync(string _url)
         {
-            // Call asynchronous network methods in a try/catch block to handle exceptions.
             try
             {
                 HttpResponseMessage response = await client.GetAsync(_url);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
-                // Above three lines can be replaced with new helper method below
-                // string responseBody = await client.GetStringAsync(uri);
 
                 Console.WriteLine(responseBody);
                 return responseBody;

@@ -24,9 +24,7 @@ namespace TestProject
             SetContentView(Resource.Layout.activity_result);
             contentText = FindViewById<TextView>(Resource.Id.textView1);
             var content = Intent.GetStringExtra("content") ?? "-";
-            contentText.Text = content;
             ConvertToJson(content);
-            Console.WriteLine(content);
         }
 
         private void ConvertToJson(string text)
